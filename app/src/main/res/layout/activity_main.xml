@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/main_btn_serial_port"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toSerialPortAct"
+        android:text="@string/serial_port" />
+
+    <Button
+        android:id="@+id/main_btn_move_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toMoveViewAct"
+        android:text="@string/move_view"
+        app:layout_constraintTop_toBottomOf="@+id/main_btn_serial_port" />
+
+    <Button
+        android:id="@+id/main_btn_usb_printer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toUsbPrinterAct"
+        android:text="@string/usb_printer"
+        app:layout_constraintTop_toBottomOf="@+id/main_btn_move_view" />
+
+    <Button
+        android:id="@+id/main_btn_ethernet_printer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toEthernetPrinterAct"
+        android:text="@string/ethernet_printer"
+        app:layout_constraintTop_toBottomOf="@+id/main_btn_usb_printer" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="toBluetoothPrinterAct"
+        android:text="@string/bluetooth_printer"
+        app:layout_constraintTop_toBottomOf="@+id/main_btn_ethernet_printer" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">peripheral</string>
+    <string name="serial_port">serial_port</string>
+    <string name="move_view">move view</string>
+    <string name="printer">printer</string>
+    <string name="usb_printer">usb printer</string>
+    <string name="test_print">test print</string>
+    <string name="ethernet_printer">ethernet printer</string>
+    <string name="printer_ip">printer ip</string>
+    <string name="printer_port">printer port</string>
+    <string name="test_connect">test connect</string>
+    <string name="ip_format_error">ip format error</string>
+    <string name="send_success">send success</string>
+    <string name="send_failed">send failed</string>
+    <string name="port_cannot_be_empty">port cannot be empty</string>
+    <string name="bluetooth_printer">bluetooth printer</string>
+    <string name="device">device</string>
+    <string name="device_does_not_support_bluetooth">Device does not support Bluetooth</string>
+    <string name="bluetooth_device_bonded_print_test_data">Bluetooth device is bonded.\nDo you want print test data?</string>
+    <string name="no">no</string>
+    <string name="yes">yes</string>
+</resources>
