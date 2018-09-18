@@ -135,8 +135,9 @@ public class UsbPrinterActivity extends AppCompatActivity {
                 view = LayoutInflater.from(UsbPrinterActivity.this).inflate(R.layout.printer_item_layout, viewGroup, false);
             }
             final UsbPrinter item = getItem(i);
+            String msg = item.getPrinterName() + "\nPID = " + item.getUsbDevice().getProductId() + "\nVID = " + item.getUsbDevice().getVendorId();
             TextView printerName = view.findViewById(R.id.printerName);
-            printerName.setText(item.getPrinterName());
+            printerName.setText(msg);
 
             Button testPrint = view.findViewById(R.id.testPrint);
             testPrint.setOnClickListener(new View.OnClickListener() {
