@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="divider1" type="id" />
+    <item name="divider2" type="id" />
+    <item name="divider3" type="id" />
+    <item name="divider4" type="id" />
+    <item name="divider5" type="id" />
+    <item name="text1" type="id" />
+    <item name="text2" type="id" />
+    <item name="text3" type="id" />
+    <item name="text4" type="id" />
+    <item name="text5" type="id" />
+    <item name="text6" type="id" />
+    <item name="text7" type="id" />
+</resources>

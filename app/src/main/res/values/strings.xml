@@ -19,4 +19,7 @@
     <string name="bluetooth_device_bonded_print_test_data">Bluetooth device is bonded.\nDo you want print test data?</string>
     <string name="no">no</string>
     <string name="yes">yes</string>
+    <string name="serial_port_path">串口路径</string>
+    <string name="baud_rate">波特率</string>
+    <string name="please_select">请选择</string>
 </resources>

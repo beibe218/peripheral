@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toSerialPortAct(View view) {
-        Intent intent = new Intent(this, SerialPortActivity.class);
+        Intent intent = new Intent(this, SerialPortReadActivity.class);
         startActivity(intent);
     }
 

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+    <TextView
+        android:id="@+id/path_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="@string/serial_port_path"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/path_tv"
+        app:layout_constraintTop_toTopOf="@id/path_tv" />
+
+    <TextView
+        android:id="@+id/path_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="showSerialPortPathDialog"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="@string/please_select"
+        android:textSize="18sp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <View
+        android:id="@id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/path_title_tv" />
+
+    <TextView
+        android:id="@+id/baud_rate_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="@string/baud_rate"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/baud_rate_tv"
+        app:layout_constraintTop_toBottomOf="@id/divider1"
+        app:layout_constraintTop_toTopOf="@id/baud_rate_tv" />
+
+    <TextView
+        android:id="@+id/baud_rate_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:onClick="showBaudRateDialog"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:text="@string/please_select"
+        android:textSize="18sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider1" />
+
+    <View
+        android:id="@id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/baud_rate_title_tv" />
+
+    <TextView
+        android:id="@+id/read_result_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showBaudRateDialog"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp"
+        android:textColor="@color/colorAccent"
+        android:textSize="18sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="testConnect"
+        android:text="@string/test_connect"
+        app:layout_constraintTop_toBottomOf="@id/read_result_tv" />
+
+    <android.support.constraint.Barrier
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="path_title_tv,baud_rate_title_tv" />
+
+</android.support.constraint.ConstraintLayout>
