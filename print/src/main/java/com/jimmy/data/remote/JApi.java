@@ -1,5 +1,7 @@
 package com.jimmy.data.remote;
 
+import com.jimmy.data.db.model.Item;
+
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -19,7 +21,7 @@ public class JApi {
                 .create(JService.class);
     }
 
-    public Call<ResponseBody> getItems(String merchantId, String branchId, int pageSize, String maxFlowId, String hashCode) {
+    public Call<HttpResult<Item>> getItems(String merchantId, String branchId, int pageSize, String maxFlowId, String hashCode) {
         return jService.getItems(merchantId, branchId, pageSize, maxFlowId, hashCode);
     }
 }
