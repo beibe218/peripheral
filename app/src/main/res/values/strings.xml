@@ -22,4 +22,6 @@
     <string name="serial_port_path">串口路径</string>
     <string name="baud_rate">波特率</string>
     <string name="please_select">请选择</string>
+    <string name="test_data">测试数据</string>
+    <string name="write_data">写入</string>
 </resources>

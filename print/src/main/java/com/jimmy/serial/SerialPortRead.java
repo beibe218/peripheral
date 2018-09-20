@@ -90,15 +90,15 @@ public class SerialPortRead {
 
     public void close() {
         isReading = false;
-        if (serialPort != null) {
-            serialPort.close();
-        }
-        if (is != null) {
-            try {
+        try {
+            if (is != null) {
                 is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+            if (serialPort != null) {
+                serialPort.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

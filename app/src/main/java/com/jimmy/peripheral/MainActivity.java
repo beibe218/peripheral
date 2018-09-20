@@ -38,4 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BluetoothPrinterActivity.class);
         startActivity(intent);
     }
+
+    public void toSerialPortWriteAct(View view) {
+        Intent intent = new Intent(this, SerialPortWriteActivity.class);
+        startActivity(intent);
+    }
 }

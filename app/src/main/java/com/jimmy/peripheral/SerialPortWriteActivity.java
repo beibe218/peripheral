@@ -6,44 +6,34 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jimmy.serial.ReadCallback;
-import com.jimmy.serial.SerialPortRead;
+import com.jimmy.serial.SerialPortWrite;
 import com.jimmy.serial.utils.SerialPortFinder;
 
-public class SerialPortReadActivity extends AppCompatActivity {
+public class SerialPortWriteActivity extends AppCompatActivity {
 
     private String[] allDevicesPath;
-    private SerialPortRead serialPortRead;
     private TextView pathTv;
     private TextView baudRateTv;
-    private TextView readResultTv;
+    private SerialPortWrite serialPortWrite;
+    private EditText testDataEt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_serial_port_read);
-        getSupportActionBar().setTitle(R.string.serial_port);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.activity_serial_port_write);
 
         SerialPortFinder serialPortFinder = new SerialPortFinder();
         allDevicesPath = serialPortFinder.getAllDevicesPath();
-        serialPortRead = new SerialPortRead();
+        serialPortWrite = new SerialPortWrite();
 
         pathTv = findViewById(R.id.path_tv);
         baudRateTv = findViewById(R.id.baud_rate_tv);
-        readResultTv = findViewById(R.id.read_result_tv);
+        testDataEt = findViewById(R.id.test_data_et);
     }
-
-    private ReadCallback readCallback = new ReadCallback() {
-        @Override
-        public void onReading(String s) {
-            readResultTv.setText(s);
-        }
-    };
 
     public void showSerialPortPathDialog(View view) {
         new AlertDialog.Builder(this)
@@ -70,32 +60,19 @@ public class SerialPortReadActivity extends AppCompatActivity {
                 .show();
     }
 
-    private void open() {
+    public void open(View view) {
         String path = pathTv.getText().toString();
         String baudRate = baudRateTv.getText().toString();
         if (TextUtils.isEmpty(baudRate) || TextUtils.isEmpty(path)) {
             return;
         }
-        serialPortRead.open(path, Integer.parseInt(baudRate), readCallback);
+        serialPortWrite.open(path, Integer.parseInt(baudRate));
     }
 
-    public void testConnect(View view) {
-        open();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (serialPortRead != null) {
-            serialPortRead.close();
-        }
+    public void write(View view) {
+        if (serialPortWrite == null)
+            return;
+        String s = testDataEt.getText().toString();
+        serialPortWrite.write(s, SerialPortWrite.WriteType.TYPE_CHARGE);
     }
 }
