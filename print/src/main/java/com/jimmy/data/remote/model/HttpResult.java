@@ -1,10 +1,6 @@
-package com.jimmy.data.remote;
+package com.jimmy.data.remote.model;
 
 import java.util.List;
-
-/**
- * Created by APJ on 2018-9-20.
- */
 
 public class HttpResult<T> {
     private int stats;

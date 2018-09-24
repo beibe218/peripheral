@@ -6,111 +6,111 @@ package com.jimmy.data.db.model;
 
 public class Item {
 
-    private String merchantId; //10108481
-    private String id; //bae9c22eaaa446fc8c6c61295aca1c09
-    private String barcode; //1353173474543
-    private String name; //烏龍奶茶
-    private String mnemonicCode; //WLNC9562
-    private String subName; //烏龍奶茶
-    private String size; //
-    private String productPlace; //
-    private String unitId; //daabe578a04d11e89f146c92bf611ada
-    private String itemClsId; //cc96bece20e14289bdedfc764dc0442c
-    private String itemBrandId; //
-    private String itemStatus; //01
-    private String retailSetPriceFlag; //01
-    private String itemType; //5
-    private double purchasePrice; // 0.0000,
-    private double retailPrice; // 10.0000,
-    private double minRetailPrice; // 0.0000,
-    private double vipPrice; // 10.0000,
-    private double vipPrice3; // 10.0000,
-    private double vipPrice2; // 10.0000,
-    private double branchVipPrice; // 0,
-    private double branchVipPrice3; // 0,
-    private double branchVipPrice2; // 0,
-    private String posDiscountFlag; //1
-    private String posBargainingFlag; //
-    private String assistantCommissionFlag; //
-    private double assistantCommissionRate; // 0.0000,
-    private double assistantCommissionAmt; // 0.00,
-    private String operId; //153431168679724585909698704
-    private String operDate; //2018-08-15 14:28:44
-    private String modifyOper; //
-    private String modifyDate; //
-    private String barCodeCreateFlag; //1
-    private String sellOutFlag; //0
-    private double initStockQty; // -4.0000,
-    private String deleteFlag; //0
-    private String tSFlag; //1
-    private String maxFlowId; //153743541715273028312318984
-    private String operType; //U
-    private String productionDate; //
-    private int shelfLife; // 0,
-    private double maxQty; // 0.000,
-    private double minQty; // 0.000,
-    private String itemDesc; //
-    private String unitName; //
-    private String itemClsName; //
-    private String itemBrandName; //
-    private String supplierId; //
-    private String supplierName; //
-    private int currentNum; // 0,
-    private String branchId; //
-    private String branchName; //
-    private String fixedPriceFlag; //0
-    private String expirationDate; //
-    private String upOrDownFlag; //
-    private String unit; //
-    private String smallPicture; //
-    private String itemPicture; //
-    private String unitMame; //
-    private String stockTargetId; //
-    private String detailItems; //
-    private String properties; //
-    private int branchPrice; // 0,
-    private int wholesalePrice; // 0,
-    private int deliveryPrice; // 0,
-    private int propertyPrice; // 0,
-    private String posGiveFlag; //是
-    private double orderNumber; // 1.000,
-    private double minCumulativeNumber; // 1.000,
-    private String propertie; //
-    private String branch; //
-    private String materialQty; //
-    private String total; //
-    private String propertyName; //
-    private String propertyFlowId; //
-    private String itemPropertyFlowId; //
-    private String sweepOrderFlag; //
-    private String itemBranchSweepOrderFlag; //
-    private String freshBarcode; //
-    private String costPrice; //
-    private String integralFlag; //
-    private String isExistInStock; //
-    private String propertyList; //
-    private String outFlag; //
-    private String purchaseQty; //
-    private String actualPrice; //
-    private String subAmt; //
-    private String attribute1; //
-    private String attribute2; //
-    private String attribute3; //
-    private String color; //
-    private String measurement; //
-    private String pluCode; //
-    private String takeOutItemId; //
-    private String pOSDiscountFlagNew; //
-    private String currentPriceFlag; //
-    private String sort; // 0,
-    private double taxRate; // 0,
-    private String nzqrcode; //
-    private String nzregistrationNo; //
-    private String nzregistrationName; //
-    private String nzproductNo; //
-    private String nzproductLicense; //
-    private String isCanSale; //
-    private String isCanSaleMaterialId; //private String
+    private String merchantId;
+    private String id;
+    private String barcode;
+    private String name;
+    private String mnemonicCode;
+    private String subName;
+    private String size;
+    private String productPlace;
+    private String unitId;
+    private String itemClsId;
+    private String itemBrandId;
+    private String itemStatus;
+    private String retailSetPriceFlag;
+    private String itemType;
+    private double purchasePrice;
+    private double retailPrice;
+    private double minRetailPrice;
+    private double vipPrice;
+    private double vipPrice3;
+    private double vipPrice2;
+    private double branchVipPrice;
+    private double branchVipPrice3;
+    private double branchVipPrice2;
+    private String posDiscountFlag;
+    private String posBargainingFlag;
+    private String assistantCommissionFlag;
+    private double assistantCommissionRate;
+    private double assistantCommissionAmt;
+    private String operId;
+    private String operDate;
+    private String modifyOper;
+    private String modifyDate;
+    private String barCodeCreateFlag;
+    private String sellOutFlag;
+    private double initStockQty;
+    private String deleteFlag;
+    private String tSFlag;
+    private String maxFlowId;
+    private String operType;
+    private String productionDate;
+    private int shelfLife;
+    private double maxQty;
+    private double minQty;
+    private String itemDesc;
+    private String unitName;
+    private String itemClsName;
+    private String itemBrandName;
+    private String supplierId;
+    private String supplierName;
+    private int currentNum;
+    private String branchId;
+    private String branchName;
+    private String fixedPriceFlag;
+    private String expirationDate;
+    private String upOrDownFlag;
+    private String unit;
+    private String smallPicture;
+    private String itemPicture;
+    private String unitMame;
+    private String stockTargetId;
+    private String detailItems;
+    private String properties;
+    private int branchPrice;
+    private int wholesalePrice;
+    private int deliveryPrice;
+    private int propertyPrice;
+    private String posGiveFlag;
+    private double orderNumber;
+    private double minCumulativeNumber;
+    private String propertie;
+    private String branch;
+    private String materialQty;
+    private String total;
+    private String propertyName;
+    private String propertyFlowId;
+    private String itemPropertyFlowId;
+    private String sweepOrderFlag;
+    private String itemBranchSweepOrderFlag;
+    private String freshBarcode;
+    private String costPrice;
+    private String integralFlag;
+    private String isExistInStock;
+    private String propertyList;
+    private String outFlag;
+    private String purchaseQty;
+    private String actualPrice;
+    private String subAmt;
+    private String attribute1;
+    private String attribute2;
+    private String attribute3;
+    private String color;
+    private String measurement;
+    private String pluCode;
+    private String takeOutItemId;
+    private String pOSDiscountFlagNew;
+    private String currentPriceFlag;
+    private String sort;
+    private double taxRate;
+    private String nzqrcode;
+    private String nzregistrationNo;
+    private String nzregistrationName;
+    private String nzproductNo;
+    private String nzproductLicense;
+    private String isCanSale;
+    private String isCanSaleMaterialId;
 
     public String getMerchantId() {
         return merchantId;
