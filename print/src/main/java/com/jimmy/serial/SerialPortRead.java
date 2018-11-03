@@ -2,6 +2,7 @@ package com.jimmy.serial;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 import com.jimmy.printer.R;
 import com.jimmy.serial.utils.SerialPort;
@@ -11,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.security.InvalidParameterException;
+import java.util.Arrays;
 
 public class SerialPortRead {
 
@@ -53,15 +55,76 @@ public class SerialPortRead {
             while (isReading) {
                 try {
                     if (is == null) return;
-                    byte[] buffer = new byte[64];
-                    int size = is.read(buffer);
-                    String s = new String(buffer, 0, size);
+                    String s;
+                    byte[] line = readLine(is);
+                    if (line[0] == 87) {
+                        s = readWENTEC(line);
+                    } else {
+                        byte[] buffer = new byte[64];
+                        int size = is.read(buffer);
+                        s = new String(buffer, 0, size);
+                    }
                     sendMessage(s);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
+    }
+
+    private byte[] readLine(InputStream is) throws IOException {
+        byte[] line = new byte[22];
+        byte[] buffer = new byte[2];
+        int index = 0;
+        for (; ; ) {
+            if (is.read(buffer, 0, 1) != -1) {
+                line[index] = buffer[0];
+                index++;
+                if (index >= 22 || buffer[0] == 10) {
+                    break;
+                }
+            } else {
+                break;
+            }
+        }
+
+        return line;
+    }
+
+    private String readWENTEC(byte[] line) throws IOException {
+        Log.d("line=", Arrays.toString(line));
+
+        byte[] buf = new byte[20];
+        if (line[0] == 'W') {
+            byte status = line[4];
+            byte[] net_weight = new byte[7];
+            byte sep = 'P';
+            byte[] tare_weight = new byte[7];
+            System.arraycopy(line, 5, net_weight, 0, 6);
+            System.arraycopy(line, 12, tare_weight, 0, 6);
+            buf[0] = status;
+            for (int i = 0; i < 6; i++) {
+                buf[i + 1] = net_weight[i];
+            }
+            buf[7] = sep;
+            for (int j = 0; j < 6; j++) {
+                buf[j + 8] = tare_weight[j];
+            }
+        }
+
+        String a = ASCII2HexString(buf, 20).substring(0, 1);
+        String b = ASCII2HexString(buf, 20).substring(1, 7);
+        String c = ASCII2HexString(buf, 20).substring(8, 14);
+        Log.d("WINTEC：", "a=" + a + ", b=" + b + ", c=" + c);
+        return b;
+    }
+
+    public String ASCII2HexString(byte[] src, int n) {
+        char[] data = new char[n];
+        for (int i = 0; i < src.length; i++) {
+            data[i] = (char) ((int) (src[i]));
+        }
+        return new String(data);
     }
 
     private static class MyHandler extends Handler {

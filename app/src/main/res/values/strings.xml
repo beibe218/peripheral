@@ -24,4 +24,7 @@
     <string name="please_select">请选择</string>
     <string name="test_data">测试数据</string>
     <string name="write_data">写入</string>
+    <string name="serial_port_read">serial port read</string>
+    <string name="serial_port_write">serial port write</string>
+    <string name="get_local_serial_port_path_failed">获取本机串口路径失败</string>
 </resources>

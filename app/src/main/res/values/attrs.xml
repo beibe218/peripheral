@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomButton">
+        <attr name="btn_size" format="dimension" />
+        <attr name="btn_icon" format="reference" />
+        <attr name="btn_text" format="string" />
+    </declare-styleable>
+</resources>

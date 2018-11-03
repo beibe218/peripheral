@@ -6,9 +6,11 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jimmy.serial.ReadCallback;
 import com.jimmy.serial.SerialPortRead;
@@ -26,13 +28,18 @@ public class SerialPortReadActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_serial_port_read);
-        getSupportActionBar().setTitle(R.string.serial_port);
+        getSupportActionBar().setTitle(R.string.serial_port_read);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        SerialPortFinder serialPortFinder = new SerialPortFinder();
-        allDevicesPath = serialPortFinder.getAllDevicesPath();
-        serialPortRead = new SerialPortRead();
+        try {
+            SerialPortFinder serialPortFinder = new SerialPortFinder();
+            allDevicesPath = serialPortFinder.getAllDevicesPath();
+        } catch (Exception e) {
+            Toast.makeText(this, R.string.get_local_serial_port_path_failed, Toast.LENGTH_LONG).show();
+            allDevicesPath = getResources().getStringArray(R.array.serial_port_path);
+        }
 
+        serialPortRead = new SerialPortRead();
         pathTv = findViewById(R.id.path_tv);
         baudRateTv = findViewById(R.id.baud_rate_tv);
         readResultTv = findViewById(R.id.read_result_tv);
@@ -41,6 +48,7 @@ public class SerialPortReadActivity extends AppCompatActivity {
     private ReadCallback readCallback = new ReadCallback() {
         @Override
         public void onReading(String s) {
+            Log.d("serial port read = ", s);
             readResultTv.setText(s);
         }
     };

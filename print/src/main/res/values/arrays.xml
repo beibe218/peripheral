@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="serial_port_path">
+        <item>/dev/ttyHSL1</item>
+        <item>/dev/ttyHSL3</item>
+        <item>/dev/ttyUSB0</item>
+        <item>/dev/ttyP0</item>
+        <item>/dev/ttyS0</item>
+        <item>/dev/ttyS1</item>
+        <item>/dev/ttyS2</item>
+        <item>/dev/ttyS3</item>
+        <item>/dev/ttyS4</item>
+    </array>
+</resources>

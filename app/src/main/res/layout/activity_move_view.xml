@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.jimmy.peripheral.DragViewGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,6 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/serial_port" />
+
+    <com.jimmy.peripheral.CustomButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:btn_icon="@android:drawable/alert_dark_frame"
+        app:btn_size="70dp"
+        app:btn_text="@string/test_print" />
 
 </com.jimmy.peripheral.DragViewGroup>
 
