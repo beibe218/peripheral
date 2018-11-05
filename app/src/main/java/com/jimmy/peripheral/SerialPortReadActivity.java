@@ -84,6 +84,7 @@ public class SerialPortReadActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(baudRate) || TextUtils.isEmpty(path)) {
             return;
         }
+        serialPortRead.close();
         serialPortRead.open(path, Integer.parseInt(baudRate), readCallback);
     }
 

@@ -60,9 +60,7 @@ public class SerialPortRead {
                     if (line[0] == 87) {
                         s = readWENTEC(line);
                     } else {
-                        byte[] buffer = new byte[64];
-                        int size = is.read(buffer);
-                        s = new String(buffer, 0, size);
+                        s = readDaHua(line);
                     }
                     sendMessage(s);
                 } catch (IOException e) {
@@ -70,6 +68,17 @@ public class SerialPortRead {
                 }
             }
         }
+    }
+
+    private String readDaHua(byte[] line) {
+        try {
+            String s = ASCII2HexString(line, 22).substring(0, 5).trim();
+            double b = Double.parseDouble(s) / 1000;
+            return String.valueOf(b);
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return "0.000";
     }
 
     private byte[] readLine(InputStream is) throws IOException {
@@ -80,14 +89,15 @@ public class SerialPortRead {
             if (is.read(buffer, 0, 1) != -1) {
                 line[index] = buffer[0];
                 index++;
-                if (index >= 22 || buffer[0] == 10) {
+
+                if (index >= 22 || buffer[0] == 13) {
                     break;
                 }
             } else {
                 break;
             }
         }
-
+        Log.d("byteline", Arrays.toString(line));
         return line;
     }
 
