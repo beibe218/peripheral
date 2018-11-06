@@ -39,7 +39,6 @@ public class SerialPortReadActivity extends AppCompatActivity {
             allDevicesPath = getResources().getStringArray(R.array.serial_port_path);
         }
 
-        serialPortRead = new SerialPortRead();
         pathTv = findViewById(R.id.path_tv);
         baudRateTv = findViewById(R.id.baud_rate_tv);
         readResultTv = findViewById(R.id.read_result_tv);
@@ -84,7 +83,11 @@ public class SerialPortReadActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(baudRate) || TextUtils.isEmpty(path)) {
             return;
         }
-        serialPortRead.close();
+        if (serialPortRead != null) {
+            serialPortRead.close();
+            serialPortRead = null;
+        }
+        serialPortRead = new SerialPortRead();
         serialPortRead.open(path, Integer.parseInt(baudRate), readCallback);
     }
 

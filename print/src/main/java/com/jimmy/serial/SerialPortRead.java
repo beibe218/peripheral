@@ -53,6 +53,8 @@ public class SerialPortRead {
         @Override
         public void run() {
             while (isReading) {
+                long id = Thread.currentThread().getId();
+                Log.d("thread", "id =" + id);
                 try {
                     if (is == null) return;
                     String s;
@@ -82,15 +84,29 @@ public class SerialPortRead {
     }
 
     private byte[] readLine(InputStream is) throws IOException {
+        //5518    000     000\n\r
+        //WGT:1 5.570P 0.000\r\n
+
         byte[] line = new byte[22];
         byte[] buffer = new byte[2];
         int index = 0;
+        byte[] _r = new byte[1];//13
+        byte[] _n = new byte[1];//10
         for (; ; ) {
             if (is.read(buffer, 0, 1) != -1) {
                 line[index] = buffer[0];
                 index++;
 
-                if (index >= 22 || buffer[0] == 13) {
+                if (buffer[0] == 13) {
+                    _r[0] = buffer[0];
+                }
+
+                if (buffer[0] == 10) {
+                    _n[0] = buffer[0];
+                }
+
+                boolean isEnd = _r[0] == 13 && _n[0] == 10;
+                if (index >= 22 || isEnd) {
                     break;
                 }
             } else {
@@ -121,7 +137,7 @@ public class SerialPortRead {
                 buf[j + 8] = tare_weight[j];
             }
         }
-
+        Log.d("WINTEC：", ASCII2HexString(line, line.length));
         String a = ASCII2HexString(buf, 20).substring(0, 1);
         String b = ASCII2HexString(buf, 20).substring(1, 7);
         String c = ASCII2HexString(buf, 20).substring(8, 14);
