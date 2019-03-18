@@ -2,14 +2,6 @@ package com.jimmy.printer.command;
 
 import java.util.Arrays;
 
-/**
- * 类描述：
- * 创建人：jimmy.yang
- * 创建时间：2018-9-17 17:44
- * Email: jimmy.yang@keimai.cn
- * 修改备注：
- */
-
 public class JUtils {
 
     public static byte[][] split_bytes(byte[] bytes, int copies) {
